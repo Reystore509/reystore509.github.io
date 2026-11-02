@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rey Store | Produits de beauté</title>
+<script>
+// ===== MODIFIE ICI =====
+var WHATSAPP = "50934854674";
+var TELEPHONE = "3485-4674";
+var ADRESSE = "Route ODPG, Imp. Wilson #16, Gonaïves, Haïti";
+var PRODUITS = [
+ // ["emoji", "Nom du produit", "Prix"],
+ ["🧼","Savon African Black","100 HTG"],
+ ["💧","Huile de soin (ti kò kò)","125 HTG"],
+ ["🧴","Crème Clarifiante","300 HTG"],
+ ["🧅","L'huile d'oignon (pousse cheveux)","1,250 HTG"],
+ ["💈","Gel Black Jack","500 HTG"],
+ ["🚿","Shampoing Black","600 HTG"],
+ ["🎨","Pommade couleur / Pommade cheveux","750 HTG"],
+ ["🌸","Parfums divers (Élite, Chéri, Maison...)","780 HTG"],
+ ["🌴","Huile Palm H","1,000 HTG"],
+ ["💇","Crème Coiffante","1,000 HTG"],
+ ["🌺","Spray / Brise Victoria Secret","1,000 HTG"],
+ ["🌬️","Brise de Smell","1,500 HTG"],
+ ["🐎","Parfum Polo Ralph","1,500 HTG"],
+ ["🌱","Fast Hair Growth (pour cheveux)","2,500 HTG"],
+ ["👑","Parfum Spirit Millionnaire","2,500 HTG"],
+ ["🎁","Gamme de produits complets","3,000 HTG"]
+];
+// =======================
+</script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0f0f0f;color:#f4efe6;font-family:Arial,sans-serif;line-height:1.5}
+.w{max-width:760px;margin:0 auto;padding:0 16px}
+header{text-align:center;padding:44px 16px 36px;background:#1a1a1a;border-bottom:2px solid #d4af37}
+h1{margin:0 0 8px;font-size:2.2rem;color:#d4af37;letter-spacing:2px}
+header p{margin:0 auto 20px;max-width:440px;color:#cfc6b4}
+.btn{display:inline-block;background:#d4af37;color:#111;padding:11px 20px;border-radius:999px;font-weight:bold;text-decoration:none;border:0;font-size:1rem}
+h2{color:#d4af37;margin:30px 0 14px;font-size:1.4rem}
+.g{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:600px){.g{grid-template-columns:repeat(3,1fr)}}
+.c{background:#1b1b1b;border:1px solid #3a3220;border-radius:14px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;justify-content:space-between}
+.e{font-size:2.2rem}
+.c h3{font-size:.92rem;margin:6px 0}
+.p{color:#d4af37;font-weight:bold;margin-bottom:10px}
+.c .btn{padding:8px 12px;font-size:.85rem}
+.b{background:#1b1b1b;border:1px solid #3a3220;border-radius:14px;padding:14px 16px;margin-bottom:10px}
+footer{text-align:center;padding:28px 16px;margin-top:30px;border-top:1px solid #3a3220;color:#9c9484;font-size:.9rem}
+</style>
+</head>
+<body>
+<header>
+<h1>REY STORE</h1>
+<p>Votre boutique de produits de beauté et de soins capillaires aux Gonaïves : savons, huiles, crèmes, parfums et plus encore, à prix accessibles. Livraison disponible.</p>
+<a class="btn" href="#produits">Voir les produits</a>
+</header>
+<main class="w">
+<h2 id="produits">Nos produits</h2>
+<div class="g" id="grille"></div>
+
+<h2>Comment commander ?</h2>
+<div class="b">💬 Cliquez sur « Commander » : votre message part directement sur WhatsApp.</div>
+<div class="b">🚚 Nous faisons la livraison.</div>
+<div class="b">💳 Paiement par MonCash et NatCash.</div>
+
+<h2>Contact</h2>
+<div class="b">📍 <span id="adr"></span></div>
+<div class="b">📞 <span id="tel"></span></div>
+<p><a class="btn" id="wa" href="#">Écrire sur WhatsApp</a></p>
+</main>
+<footer>© 2026 Rey Store. Tous droits réservés.</footer>
+<script>
+var g=document.getElementById("grille");
+PRODUITS.forEach(function(p){
+ var d=document.createElement("div");
+ d.className="c";
+ d.innerHTML='<div><div class="e">'+p[0]+'</div><h3>'+p[1]+'</h3></div><div><div class="p">'+p[2]+'</div></div>';
+ var a=document.createElement("a");
+ a.className="btn";
+ a.textContent="Commander";
+ a.href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent("Bonjour Rey Store, je veux commander : "+p[1]+" ("+p[2]+")");
+ d.lastChild.appendChild(a);
+ g.appendChild(d);
+});
+document.getElementById("adr").textContent=ADRESSE;
+document.getElementById("tel").textContent=TELEPHONE;
+document.getElementById("wa").href="https://wa.me/"+WHATSAPP;
+</script>
+</body>
+</html>
